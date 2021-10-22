@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# require 'factory_bot_rails'
+
+# Pet.destroy_all
+# Shelter.destroy_all
+# Application.destroy_all
+
+2.times do
+  FactoryBot.create(:shelter)
+end
+
+5.times do
+  FactoryBot.create(:pet)
+end
+
+3.times do
+  FactoryBot.create(:application)
+end
