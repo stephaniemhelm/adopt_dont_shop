@@ -4,7 +4,12 @@
   <h3><b>Name: <%= @application.name %><br></h3>
   <p><b>Street Address: <%= @application.street_address %><br>
   <p><b>City: <%= @application.city %><br>
-  <p><b>State: <%= @application.city %><br>
+  <p><b>State: <%= @application.state %><br>
   <p><b>Zip Code: <%= @application.zip_code %><br>
   <p><b>Description: <%= @application.description %><br>
+
+  <p><b>Pets: <% @specific_pets.each do |pet| %>
+    <%= pet.name  %>
+    <% end %>
+
   <br>
