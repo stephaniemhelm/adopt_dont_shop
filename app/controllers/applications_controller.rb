@@ -8,10 +8,13 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-    application = Application.create!(application_params)
-    #application = Application.create!(application_params, status: "In Progress")
-    #application(params[:status]) = "In Progress"
-    redirect_to "/applications/#{application.id}"
+    application = Application.new(application_params)
+    if application.save
+      redirect_to "/applications/#{application.id}"
+    else
+      flash[:alert] = "Missing fields must be completed."
+      render :new
+    end
   end
 
   def show
@@ -22,6 +25,10 @@ class ApplicationsController < ApplicationController
   private
 
     def application_params
+      if params[:status] == nil
+        params[:status] = 'In Progress'
+      end
+
       params.permit(:name, :street_address, :city, :state, :zip_code, :description, :status)
     end
 
