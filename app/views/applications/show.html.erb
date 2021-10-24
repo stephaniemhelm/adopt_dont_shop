@@ -7,9 +7,10 @@
   <p><b>State: <%= @application.state %><br>
   <p><b>Zip Code: <%= @application.zip_code %><br>
   <p><b>Description: <%= @application.description %><br>
+    <p><b>Status: <%= @application.status %><br>
+
 
   <p><b>Pets: <% @specific_pets.each do |pet| %>
-    <%= pet.name  %>
+    <h3><b><%= link_to pet.name, "/pets/#{pet.id}" %></h3>
     <% end %>
-
   <br>
