@@ -2,9 +2,11 @@ class ApplicationsController < ApplicationController
 
   def index
     @applications = Application.all
+    #@pet = Pet.find(params[:id])
   end
 
   def new
+    #@favorite_pet = Pet.find(params[:id])
   end
 
   def create
@@ -12,7 +14,7 @@ class ApplicationsController < ApplicationController
     if application.save
       redirect_to "/applications/#{application.id}"
     else
-      flash[:alert] = "Missing fields must be completed."
+      flash[:notice] = "Missing fields must be completed."
       render :new
     end
   end
