@@ -10,19 +10,24 @@ RSpec.describe 'Start an Application' do
   end
 
   it 'can create a new application'  do
-    visit '/applications'
+    visit '/applications/new'
     fill_in('Name', with: "Sally Jordan")
-    fill_in('Street Address', with: "4 Oak Street")
+    fill_in('Street address', with: "4 Oak Street")
     fill_in('City', with: "Salida")
     fill_in('State', with: "AZ")
-    fill_in('Zip Code', with: 75418)
+    fill_in('Zip code', with: 75418)
     fill_in('Description', with: "I love cats!")
 
     click_on('Submit Application')
 
     new_application_id = Application.last.id
-    expect(current_path).to eq("/applicatons/#{new_application_id}")
+    expect(current_path).to eq("/applications/#{new_application_id}")
     expect(page).to have_content("Sally Jordan")
+    expect(page).to have_content("4 Oak Street")
+    expect(page).to have_content("Salida")
+    expect(page).to have_content("AZ")
+    expect(page).to have_content(75418)
+    expect(page).to have_content("I love cats")
   end
 
   # As a visitor
