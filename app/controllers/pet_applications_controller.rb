@@ -5,7 +5,7 @@ class PetApplicationsController < ApplicationController
   def create
     application = Application.find(params[:id])
     PetApplication.create!(application: application, pet: Pet.where(name: params[:name]).first)
-    redirect_to "/applications/#{params[:application]}"
+    redirect_to "/applications/#{params[:id]}"
   end
 
 end
