@@ -8,6 +8,10 @@
   <p><b>Zip Code: <%= @application.zip_code %><br>
   <p><b>Description: <%= @application.description %><br>
   <p><b>Status: <%= @application.status %><br>
+  <p><b>Pets I Want to Adopt:
+    <% @application.pets.each do |pet| %>
+    <%= pet.name %>
+    <% end %>
 
 
 
@@ -19,7 +23,7 @@
   <%= f.submit "Search" %>
   <% end %>
   <br>
-
+<% if @search_results != nil %>
 <% @search_results.each do |pet| %>
   <h3>Search Results</h3>
   <h3><%= pet.name %></h3>
@@ -30,3 +34,10 @@
   <%= link_to "Edit #{pet.name}", "/pets/#{pet.id}/edit" %>
   <%= link_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %>
 <% end %>
+<% end %>
+
+<%= form_with url: "/applications/#{@application.id}", method: :post, local: true do |f| %>
+  <%= f.label :pet_name %>
+  <%= f.text_field :name %>
+  <%= f.submit 'Add Pet to Application' %>
+<% end  %>
