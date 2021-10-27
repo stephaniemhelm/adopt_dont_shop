@@ -58,4 +58,26 @@ RSpec.describe 'Applications Show Page' do
 
     expect(application1.pets).to eq([pet1, pet2])
   end
+
+
+  # it 'shows partial matches' do
+  #   @shelter_1 = Shelter.create(name: 'Aurora shelter', city: 'Aurora, CO', foster_program: false, rank: 9)
+  #   @pet_1 = @shelter_1.pets.create(name: 'Mr. Pirate', breed: 'tuxedo shorthair', age: 5, adoptable: true)
+  #   @pet_2 = @shelter_1.pets.create(name: 'Clawdia', breed: 'shorthair', age: 3, adoptable: true)
+  #   @pet_3 = @shelter_1.pets.create(name: 'Ann', breed: 'ragdoll', age: 3, adoptable: false)
+  #
+  #   expect(Pet.search("Claw")).to eq([@pet_2])
+  #   expect(page).to have_content('Clawdia')
+  # end
+  #
+  # it 'shows adoptable pets' do
+  #   @shelter_1 = Shelter.create(name: 'Aurora shelter', city: 'Aurora, CO', foster_program: false, rank: 9)
+  #   @pet_1 = @shelter_1.pets.create(name: 'Mr. Pirate', breed: 'tuxedo shorthair', age: 5, adoptable: true)
+  #   @pet_2 = @shelter_1.pets.create(name: 'Clawdia', breed: 'shorthair', age: 3, adoptable: true)
+  #   @pet_3 = @shelter_1.pets.create(name: 'Ann', breed: 'ragdoll', age: 3, adoptable: false)
+  #
+  #   expect(Pet.adoptable).to eq([@pet_1, @pet_2])
+  #   expect(page).to have_content('Mr. Pirate')
+  #   expect(page).to have_content('Clawdia')
+  # end
 end
