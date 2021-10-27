@@ -8,7 +8,6 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-
     application = Application.new(application_params)
     if application.save
       redirect_to "/applications/#{application.id}"
@@ -20,7 +19,7 @@ class ApplicationsController < ApplicationController
 
   def show
     @application = Application.find(params[:id])
-    #@pets = Pet.search(params[:search] if params[:search])
+    @search_results = Pet.where(name: params[:search])
   end
 
   private
